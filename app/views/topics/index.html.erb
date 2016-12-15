@@ -2,4 +2,15 @@
 <% description "Placeholder description." %>
 <% keywords "Placeholder keywords" %>
 
-<h1>Hello World</h1>
+
+<% @topics.each do |topic| %>
+  <div class="col-md-10 col-md-offset-1">
+    <div class="message">
+      <h2 class="message-title"><%= topic.title %></h2>
+      <p><%= truncate(topic.description, length: 50) %></p>
+      <%= link_to "Join Convo", topic, class: "btn-custom" %>
+    </div>
+  </div>
+<% end %>
+
+<%= link_to "Create Topic", new_topic_path %>

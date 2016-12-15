@@ -1,7 +1,11 @@
 class TopicsController < ApplicationController
-  # before_action: :find_topic, only: [:show]
+  before_action :find_topic, only: [:show]
 
   def index
+    @topics = Topic.all.order('created_at DESC')
+  end
+
+  def show
   end
 
   def new
