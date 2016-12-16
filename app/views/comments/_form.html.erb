@@ -1,0 +1,6 @@
+<!-- this form is for @topic and we are building out the comments for out topic,
+comments dont exist without the topic -->
+<%= simple_form_for ([ @topic, @topic.comments.build ]) do |t| %>
+  <%= t.input :content, label: "Comments" %>
+  <%= t.button :submit, class: "btn-custom"%>
+<% end %>

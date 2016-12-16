@@ -9,14 +9,14 @@ class CommentsController < ApplicationController
     @comment = @topic.comments.create(comment_params)
 
     # then we are assigning the comment's user_id to the current_user.id
-    @comment.user_id = current_user.user_id
+    @comment.user_id = current_user.id
 
     if @comment.save
       redirect_to topic_path(@topic)
     else
       render 'new'
     end
-    
+
   end
 
   private
