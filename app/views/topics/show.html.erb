@@ -8,7 +8,9 @@
     <p class="message-posted-by">Created <%= time_ago_in_words(@topic.created_at) %> ago</p>
     <p class="message-desc"><%= @topic.description %></p>
     <div class="links btn-group">
-      <%= link_to "Back", root_path, class: "btn btn-default"%>
+      <%= link_to "Edit", edit_topic_path, class: "btn btn-primary" %>
+      <%= link_to "Delete", topic_path, method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %>
+      <%= link_to "Back", root_path, class: "btn btn-default" %>
     </div>
   </div>
 </div>

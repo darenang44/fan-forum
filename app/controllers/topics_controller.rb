@@ -1,5 +1,5 @@
 class TopicsController < ApplicationController
-  before_action :find_topic, only: [:show]
+  before_action :find_topic, only: [:show, :edit, :update, :destroy]
 
   def index
     @topics = Topic.all.order('created_at DESC')
@@ -22,6 +22,23 @@ class TopicsController < ApplicationController
     end
 
   end
+
+  def edit
+  end
+
+  def update
+    if @topic.update(topic_params)
+      redirect_to @topic
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @topic.destroy
+    redirect_to root_path
+  end
+
 
   private
   def find_topic
