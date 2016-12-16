@@ -3,10 +3,12 @@
   <p class="comment-posted-by">By: <%= comment.user.email %> <%= time_ago_in_words(comment.created_at) %> ago</p>
 
   <div class="links">
-    <% if current_user.id == comment.user_id %>
-      <%= link_to "Edit Comment ", edit_topic_comment_path(comment.topic, comment) %>
-      <!-- (comment.topic, comment) we are pinpointing the topic that owns that specific comment and then the comment itself -->
-      <%= link_to "Delete Comment", topic_comment_path(comment.topic, comment), method: :delete, data: { confirm: "Are you sure?" } %>
+    <% if user_signed_in? %>
+      <% if current_user.id == comment.user_id %>
+        <%= link_to "Edit Comment ", edit_topic_comment_path(comment.topic, comment), class: "btn btn-primary" %>
+        <!-- (comment.topic, comment) we are pinpointing the topic that owns that specific comment and then the comment itself -->
+        <%= link_to "Delete Comment", topic_comment_path(comment.topic, comment), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-danger" %>
+      <% end %>
     <% end %>
   </div>
 </div>

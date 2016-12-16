@@ -6,7 +6,7 @@
 <% @topics.each do |topic| %>
   <div class="col-md-10 col-md-offset-1">
     <div class="message">
-      <h2 class="message-title"><%= topic.title %></h2>
+      <h2 class="message-title"><strong><%= topic.title %></strong></h2>
       <p><%= truncate(topic.description, length: 50) %></p>
       <p class="message-posted-by">Created <%= time_ago_in_words(topic.created_at) %> ago</p>
       <%= link_to "Join Convo", topic, class: "btn-custom" %>

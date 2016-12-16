@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :find_topic, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -11,13 +12,13 @@ class TopicsController < ApplicationController
   def new
     #@topic = Topic.new
 
-    @topic = current_user.topic.build
+    @topic = current_user.topics.build
   end
 
   def create
     # @topic = Topic.new(topic_params)
 
-    @topic = current_user.topic.build(topic_params)
+    @topic = current_user.topics.build(topic_params)
 
     if @topic.save
       redirect_to root_path
