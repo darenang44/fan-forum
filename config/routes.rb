@@ -34,3 +34,12 @@ end
 #                          PATCH  /users(.:format)               devise/registrations#update
 #                          PUT    /users(.:format)               devise/registrations#update
 #                          DELETE /users(.:format)               devise/registrations#destroy
+
+      #     topic_comments GET    /topics/:topic_id/comments(.:format)          comments#index
+      #                    POST   /topics/:topic_id/comments(.:format)          comments#create
+      #  new_topic_comment GET    /topics/:topic_id/comments/new(.:format)      comments#new
+      # edit_topic_comment GET    /topics/:topic_id/comments/:id/edit(.:format) comments#edit
+      #      topic_comment GET    /topics/:topic_id/comments/:id(.:format)      comments#show
+      #                    PATCH  /topics/:topic_id/comments/:id(.:format)      comments#update
+      #                    PUT    /topics/:topic_id/comments/:id(.:format)      comments#update
+      #                    DELETE /topics/:topic_id/comments/:id(.:format)      comments#destroy
